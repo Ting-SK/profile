@@ -1,17 +1,16 @@
-import { CssBaseline } from '@mui/material'
-import { Outlet } from 'react-router-dom'
+import { FC } from 'react'
+import { Navigate } from 'react-router-dom'
 import { AuthorizedLayout } from '../../components/AuthorizedLayout'
+import { useAuth } from '../../hooks/useAuth'
 
-export const AuthorizedContainer = () => {
-  //   const { authenticated } = useAuth();
+export const AuthorizedContainer: FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  const { isAuth } = useAuth()
 
-  //   if (!authenticated) {
-  //     return <Navigate to="/auth" />
-  //   }
+  if (!isAuth) {
+    return <Navigate to='/login' />
+  }
 
-  return (
-    <AuthorizedLayout>
-      <Outlet />
-    </AuthorizedLayout>
-  )
+  return <AuthorizedLayout>{children}</AuthorizedLayout>
 }

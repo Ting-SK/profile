@@ -10,6 +10,7 @@ import {
   Typography,
 } from '@mui/material'
 import { TNavItems } from '../Header'
+import { Link } from 'react-router-dom'
 
 const DRAWER_WITH = 240
 
@@ -43,13 +44,17 @@ export const HeaderDrawer: FC<TProps> = ({
     >
       <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
         <Typography variant='h6' sx={{ my: 2 }}>
-          MUI
+          Profile app
         </Typography>
         <Divider />
         <List>
           {navItems.map(({ id, label, route }) => (
             <ListItem key={id} disablePadding>
-              <ListItemButton sx={{ textAlign: 'center' }}>
+              <ListItemButton
+                component={Link}
+                to={route}
+                sx={{ textAlign: 'center' }}
+              >
                 <ListItemText primary={label} />
               </ListItemButton>
             </ListItem>

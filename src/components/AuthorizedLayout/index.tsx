@@ -12,7 +12,7 @@ export const AuthorizedLayout: FC<{ children: ReactNode }> = ({ children }) => {
     >
       <CssBaseline />
       <Header />
-      <Box width='100%' pt={9}>
+      <Box width='100%' pt={8}>
         {children}
       </Box>
     </Stack>

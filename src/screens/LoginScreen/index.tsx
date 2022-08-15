@@ -1,9 +1,19 @@
-import { Box, Container } from '@mui/material'
+import { Stack } from '@mui/material'
+import { LoginForm } from '../../components/LoginForm'
+import { UnauthorizedContainer } from '../../containers/UnauthorizedContainer'
 
 export const LoginScreen = () => {
   return (
-    <Container maxWidth='sm' sx={{ height: '100vh' }}>
-      <Box sx={{ bgcolor: '#cfe8fc', height: '100%' }} />
-    </Container>
+    <UnauthorizedContainer>
+      <Stack
+        flexDirection='column'
+        alignItems='center'
+        justifyContent='center'
+        height='calc(100vh - 64px)'
+        bgcolor='#a8edea'
+      >
+        <LoginForm />
+      </Stack>
+    </UnauthorizedContainer>
   )
 }
